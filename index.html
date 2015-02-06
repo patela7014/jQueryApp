@@ -1,0 +1,136 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+    <style type="text/css">
+        .box {
+            position: absolute;
+            text-align: right;
+        }
+
+        #black {
+            z-index: 100;
+            background-color: green;
+            width: 30px;
+            height: 50%;
+            left: 90px;
+            top: 0px;
+        }
+
+
+        #yellow {
+            background-color: yellow;
+            width: 30px;
+            height: 50%;
+            left: 210px;
+            top: 0px;
+        }
+
+        #blue {
+            z-index: 100;
+            background-color: lightblue;
+            width: 30px;
+            height: 50%;
+            left: 330px;
+            top: 0px;
+        }
+
+        #red {
+            background-color: red;
+            width: 30px;
+            height: 50%;
+            left: 150px;
+            top: 50%;
+        }
+
+        #green {
+            z-index: 100;
+            background-color: lightgreen;
+            width: 30px;
+            height: 50%;
+            left: 270px;
+            top: 50%;
+        }
+
+        
+
+        .rotate {
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+            -webkit-transform-origin: 50% 50%;
+            -moz-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            -o-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            /* Should be unset in IE9+ I think. */
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+    </style>
+
+</head>
+<body>
+    <center>
+        <div id="content" style="width:500px;position:relative;top:0px;left:0px;height:100%">
+            <div style="position:absolute;left:140px;top:100px;"><img style="width:250px;display:none" class="logo" src="images/ydslogo.jpg" /></div>
+        <!--    <div style="position:absolute;left:160px;top:320px;"><img style="width:180px;display:none" class="logo" src="images/logo2.svg" /></div>-->
+
+            <div id="black" class="box top">
+                
+            </div>
+            <div id="blue" class="box top">
+                
+            </div>
+
+            <div id="yellow" class="box top">
+            </div>
+
+            <div id="red" class="box bottom">
+            </div>
+
+            <div id="green" class="box bottom">
+            </div>
+
+        </div>
+    </center>
+    <script type="text/javascript">
+        $(".top").animate({ height: '100%' }, 'slow');
+        $(".bottom").animate({ top: '0px', height: '100%' }, 'slow',
+            function () {
+                $("#red").animate({ left: '30px', width: '60px' }, 700,
+                function () {
+
+                    $("#red").animate({ top: '0%', height: '50%' }, 1000,
+                        function () {
+                            $('.content').slideDown('slow');
+                            $(".logo").fadeIn('slow');
+                        }
+                    );
+                    $("#yellow").animate({ top: '90%', width: '320px' }, 1000);
+
+                    $("#black").animate({ left: '100px', width: '320px' }, 1000);
+                    $("#blue").animate({ left: '430px', width: '60px' }, 1000);
+                    $("#green").animate({ left: '430px', width: '60px' }, 1000);
+
+                }
+
+                );
+                $("#yellow").animate({ left: '100px', height: '12%' }, 700);
+
+                $("#black").animate({ top: '38%', height: '12%' }, 700);
+                $("#blue").animate({ top: '55%', height: '50%' }, 700);
+                $("#green").animate({ top: '0%', height: '50%' }, 700);
+
+            }
+        );
+
+
+
+
+    </script>
+
+</body>
+</html>
